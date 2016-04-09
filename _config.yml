@@ -1,97 +1,19 @@
-# Permalinks
+# Welcome to Jekyll!
 #
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink: "/:title/"
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-highlighter: pygments
+# Site settings
+title: Little Happy
+email: chenqing331@qq.com
+description: > # this means to ignore newlines until "baseurl:"
+  大学的时候，我在软件工程专业开心地混完四年，但毕业的时候竟然幸运地找到这份程序员的工作，同事也相当棒，带我一步步走向一个真正的软件工程师。曾经，我打心眼里抵触过这个职业，而现在，我要证明看看，我能不能把它和我的生活很好地融合起来。
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://leixiaoyue.cn" # the base hostname & protocol for your site
+facebook_username: 雷晓悦
+github_username:  Jennifer331
 
-timezone: Europe/Helsinki
-
-# Default YAML frontmatter settings
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      comments: true
-
-# Tagging settings
-tag_title_prefix:   "Posts tagged #"
-tag_title_suffix:   ""
-
-# Facebook settings
-fb_admins:          606660677
-avatar:             "/public/images/me_hires.png"
-locale:             en_US
-
-# Image settings
-image_base:          /public/images/
-
-# Do not copy these file to the output directory
-exclude: ["transfer.sh", README.md]
-
-#fb_appid:           337414769782635
-
-# Setup
-title:               Vitaly Repin
-tagline:             Sapere aude!
-url:                 "http://vrepin.org"
-paginate_l:           4
-baseurl:             "/vr"
-
-paginate_langs:      ["en", "sv", "ru"]
-
-# Assets
-#
-# We specify the directory for Jekyll so we can use @imports.
-sass:
-  sass_dir:          _sass
-  style:            :compressed
-
-# About/contact
-author:
-  name:              Vitaly Repin
-  url:               https://twitter.com/vitalyrepin
-  email:             vitaly_repin@fsfe.org
-
-# Custom vars
-version:             1.0.0
-github:
-  repo:              https://github.com/vitalyrepin/vrepinblog
-
-# Google sitemap generation
-gems:
-  - jekyll-sitemap
-  - jekyll-paginate
-
-# Conversion
-markdown:    redcarpet
-excerpt_separator: "<!--break-->"
-
-redcarpet:
-  extensions: ["footnotes"]
-
-kramdown:
-  auto_ids: true
-
-pages_list:
-  About: '/vr/about/'
-  Hobby projects: '/vr/hobbies/'
-  Tags: '/vr/tags/'
-  Feed: '/vr/atom.xml'
-
-picture:
-  source: "_assets/imgs/_fullsize"
-  output: "generated"
-  markup: "picture"
-  presets:
-    default:
-      ppi: [1, 1.5, 2]
-      source_medium:
-        media: "(min-width: 40em)"
-        width: "640"
-      source_small:
-        height: "100"
-      source_default:
-        width: "640"
+# Build settings
+markdown: kramdown
