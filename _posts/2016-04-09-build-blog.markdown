@@ -12,7 +12,7 @@ categories: Blog
 
 昨天吃饭聊天，我吹牛皮说自己有域名，还能访问，朋友嘲笑我说，上面有啥？哼，你这是逼我呀。。。
 
-今天搭博客一切都很顺利，网上完善的指导很多，一下是我参考的资料，奉上
+今天搭博客一切都很顺利，网上完善的指导很多，以下是我参考的资料，奉上
 
 [Github Pages + Jekyll 独立博客一小时快速搭建&上线指南](http://www.jianshu.com/p/7593508666f8)  
 [Run Jekyll on Windows](http://jekyll-windows.juthilo.com/)  
