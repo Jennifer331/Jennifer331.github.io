@@ -5,21 +5,21 @@ lang: zh
 thumbnail: android-file-io-docopy.png
 tags: [Android File]
 ---
-# 问题咋来的呢
+# <font color="#e3796b">问题咋来的呢<font>
 最近解一个bug，需要重构移动复制的代码，本来参考了[Apache的FileUtils](https://commons.apache.org/proper/commons-io/apidocs/src-html/org/apache/commons/io/FileUtils.html),里面是这样子copy的  
 <img alt="Apache FileUtils copyFile" src="{{site.baseurl}}/assets/images/android-file-io-docopy.png" width="100%" horizontal-align="center" style="margin: 0px 15px">
 审核代码的同事之前也没有用过FileChannel的transfer方法，就搜看看，结果，一搜把我搜傻了。。。[Java 复制大文件方式(nio2 FileChannel 拷贝文件能力测试)](http://blog.csdn.net/zhuyijian135757/article/details/38471595)
 这篇文章比较了很多种复制方法的速度，__FileChannel__、__Input/Output Stream__、__Files传入Path的copy方法__，这些概念把我绕晕了，所以决定理一理思路。
 
-# 一幅揭开迷雾的图
+# <font color="#e3796b">一幅揭开迷雾的图</font>
 图是从[JAVA文档](http://docs.oracle.com/javase/tutorial/essential/io/file.html)里找来的。这幅图把JAVA提供的文件IO操作的方法从左到右按从简单到复杂的顺序排列。上排是方法名，下排是特性介绍。理得很清楚。
 <img alt="Java File IO Methods" src="{{site.baseurl}}/assets/images/android-file-io-methods.gif" width="70%" align="center" style="margin: 0px 15px">
 
-# Andorid API 并没有包含所有的Java API
+# <font color="#e3796b">Andorid API 并没有包含所有的Java API</font>
 <img alt="Java Files IO Methods" src="{{site.baseurl}}/assets/images/android-file-io-filesMethod.png" width="50%" align="center" style="margin: 0px 15px">
 Java的Files类里有很多移动复制的方法，但是，Android并不包含java.nio.file这个包，所以并没有Files这个类可以用。
 
-# FileChannel的独特之处
+# <font color="#e3796b">FileChannel的独特之处</font>
 __getChannel__
 
 看代码时有看到用RandomAccessFile的getChannel()方法的，有用FileInputStream的getChannel()的，跟着代码看下去，其实都没有差，都只是把fd和读写模式传给FileChannelImpl罢了
@@ -95,9 +95,11 @@ public long transferTo(long position, long count, WritableByteChannel target) th
     } finally {
         NioUtils.freeDirectBuffer(buffer);
     }
-}
+}  
 ```
+
 但是通过代码可以看到，这种直接在文件间读写的方式只支持向Socket写，否则，直接调用write()而已.
+
 ```C++
 public long transferFrom(ReadableByteChannel src, long position, long count) throws IOException {
     checkOpen();
@@ -139,4 +141,5 @@ public long transferFrom(ReadableByteChannel src, long position, long count) thr
     return write(buffer, position);
 }
 ```
+
 transferFrom()的注释里写“Callers should only be using transferFrom for large transfers,so the mmap(2) overhead isn't a concern.”建议传大文件时才使用该方法，mmap过度使用会有什么问题呢？看到一些说法“you should allocate memory as larger as possible in each time. (avoid mutiple times of small mmap)”但是没有实践过mmap，没有啥感觉，先看下，以后碰到再体会。
