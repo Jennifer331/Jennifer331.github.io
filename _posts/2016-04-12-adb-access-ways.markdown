@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "adb的usb和tcpip连接方式"
+title: "Android USB带出来的那些事儿"
 lang: zh
 tags: [Android，OTG]
 ---

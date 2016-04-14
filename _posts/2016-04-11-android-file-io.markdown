@@ -3,7 +3,7 @@ layout: post
 title: "Android File IO"
 lang: zh
 thumbnail: android-file-io-docopy.png
-tags: [Android File]
+tags: [Android，File]
 ---
 # <font color="#e3796b">问题咋来的呢<font>
 最近解一个bug，需要重构移动复制的代码，本来参考了[Apache的FileUtils](https://commons.apache.org/proper/commons-io/apidocs/src-html/org/apache/commons/io/FileUtils.html),里面是这样子copy的  
