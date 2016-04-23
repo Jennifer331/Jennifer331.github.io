@@ -1,0 +1,44 @@
+---
+layout: "post"
+title: "2016-4-23学习日志"
+---
+# <font color="e3796b">这两天心情不错</font>
+这两天手上没有特别忙的活计，可以有时间写自己的小demo，好开心。之前写的那篇[关于文件IO](http://leixiaoyue.cn/2016/04/11/android-file-io.html)的日志，只是大致地了解了一下，没有拍个demo测一下数据，尤其是针对我们自己的机型。这两天终于有时间啦~
+现在是周六的21点。。。我在办公室。。。等笔记本到了，姑娘再也不用周末跑来泡办公室了。。。
+我能说拍代码的时候看到前男友的结婚喜帖，差点摔手机么。。。
+
+# <font color="e3796b">对Manifest的新认知</font>
+[AndroidManifest.xml is a public API](http://android-developers.blogspot.com/2011/06/things-that-cannot-change.html)
+
+# <font color="e3796b">Service VS Thread</font>
+雇佣Service可以提高线程的重要级，[ Using a service guarantees that the operation will have at least "service process" priority, regardless of what happens to the activity](http://developer.android.com/guide/components/processes-and-threads.html#Threads)
+
+# <font color="e3796b">AsyncTask的用途</font>
+Android的single thread model有两个原则：
+
+* 不要阻塞UI线程
+
+* 不要在UI线程之外 access the Android UI toolkit
+
+所以当我们把耗时操作拿去其他线程做的时候，任务结束时需要做UI操作时，怎么办呢？
+
+1.Activity.runOnUiThread(Runnable)
+
+2.View.post(Runnable)
+
+3.View.postDelayed(Runnable, long)
+
+但是逻辑复杂的时候，这样的代码会看起来很复杂，难于维护。__AsyncTask__ 应运而生。
+
+* You can specify the type of the parameters, the progress values, and the final value of the task, using generics
+
+* doInBackground()方法在工作线程执行,onPreExecute(), onPostExecute(), 和onProgressUpdate()都在UI线程执行
+
+* doInBackground()的返回值传给onPostExecute()
+
+* You can call publishProgress() at anytime in doInBackground() to execute onProgressUpdate() on the UI thread
+
+* You can cancel the task at any time, from any thread
+
+# <font color="e3796b">我要回家做蛋糕了~</font>
+我的电脑快点到好不好。。。快点到。。。快点到。。。快点到。。。
