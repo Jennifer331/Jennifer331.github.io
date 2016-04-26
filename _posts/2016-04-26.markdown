@@ -1,0 +1,12 @@
+
+---
+layout: "post"
+title: "日志"
+---
+
+# <font color="#e3796b">萌标签 &lt;eat-comment/> </font>
+used to suppress comment lines from the documentation output.吃掉吃掉~
+
+# [Android  资源文件中@、@android:type、@\*、？、@+含义和区别](http://blog.csdn.net/mingli198611/article/details/7105850)
+
+# [putty](http://bbs.espressif.com/viewtopic.php?f=7&t=25)
