@@ -17,3 +17,4 @@ categories: Blog
 [Github Pages + Jekyll 独立博客一小时快速搭建&上线指南](http://www.jianshu.com/p/7593508666f8)  
 [Run Jekyll on Windows](http://jekyll-windows.juthilo.com/)  
 [Jekyll quick start](https://jekyllrb.com/docs/quickstart/)  
+[Improve Code Highlighting in a Jekyll-based Blog Site](https://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html)

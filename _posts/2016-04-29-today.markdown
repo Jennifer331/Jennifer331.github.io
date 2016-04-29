@@ -1,0 +1,105 @@
+---
+layout: "post"
+title: "所以，啥也不找了 & Menu"
+{% gist 8387126 %}
+---
+# <font color="#e3796b">姑娘犯傻</font>
+自以为每天刷机已经娴熟无比。。。突然抽筋决定把自己用的刷一下。
+
+保留数据模式，然而并没有用，因为失败了一次。。。
+
+什么都没有了。。。哈哈，莫名的开心
+
+一段日子，这样清空一次记忆，真的好棒~
+
+# <font color="#e3796b">onMenuItemSelected VS onOptionsItemSelected</font>
+这周都做GUI核查，在看控件，比较集中地接触了style、Theme这些这些概念，这两天是把我们自己的自定义ActionBar，换成调用系统的，调用永远没有自定义爽的说。。。想设置什么都得先去找合适的parent。。。
+
+昨天才知道原来ActionBar上面的选项属于menu，在我的印象里，不是下面专门有个menu键按出来出现在下排的是menu么。。。我是有多落伍了。。。在添加事件的时候，看到这两个函数，啥区别呢？今天看了一下。
+
+从注释和代码都能看出，当传进来的featureId为Window.FEATURE_OPTIONS_PANEL时，任务就拿给onMenuItemSelected做，其他情况拿给其他函数做，这个onMenuItemSelected看来是分任务的，那MenuItem是什么概念呢？
+
+```JAVA
+/**
+ * Default implementation of
+ * {@link android.view.Window.Callback#onMenuItemSelected}
+ * for activities.  This calls through to the new
+ * {@link #onOptionsItemSelected} method for the
+ * {@link android.view.Window#FEATURE_OPTIONS_PANEL}
+ * panel, so that subclasses of
+ * Activity don't need to deal with feature codes.
+ */
+public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    CharSequence titleCondensed = item.getTitleCondensed();
+
+    switch (featureId) {
+        case Window.FEATURE_OPTIONS_PANEL:
+            // Put event logging here so it gets called even if subclass
+            // doesn't call through to superclass's implmeentation of each
+            // of these methods below
+            if(titleCondensed != null) {
+                EventLog.writeEvent(50000, 0, titleCondensed.toString());
+            }
+            if (onOptionsItemSelected(item)) {
+                return true;
+            }
+            if (mFragments.dispatchOptionsItemSelected(item)) {
+                return true;
+            }
+            if (item.getItemId() == android.R.id.home && mActionBar != null &&
+                    (mActionBar.getDisplayOptions() & ActionBar.DISPLAY_HOME_AS_UP) != 0) {
+                if (mParent == null) {
+                    return onNavigateUp();
+                } else {
+                    return mParent.onNavigateUpFromChild(this);
+                }
+            }
+            return false;
+
+        case Window.FEATURE_CONTEXT_MENU:
+            if(titleCondensed != null) {
+                EventLog.writeEvent(50000, 1, titleCondensed.toString());
+            }
+            if (onContextItemSelected(item)) {
+                return true;
+            }
+            return mFragments.dispatchContextItemSelected(item);
+
+        default:
+            return false;
+    }
+}
+
+```
+
+对这一块没有概念，主要是以前没怎么用过Menu，先在[Developer上补一下Menu的概念](http://developer.android.com/guide/topics/ui/menus.html)，以下是摘录：
+
+* Andorid主要有3中类型的menu或者是action：
+  * Options menu and app bar
+
+  * Context menu and contextual action mode ：长按后出现的选项
+
+  * Popup menu
+
+* 还有这个功能耶Allowing your activity to be added to other menus
+
+When the user selects an item from the options menu (including action items in the app bar), the system calls your activity's __onOptionsItemSelected()__ method.
+
+When the user selects a menu item, the system calls __onContextItemSelected()__ so you can perform the appropriate action.
+
+```JAVA
+/**
+ * Called when a panel's menu item has been selected by the user.
+ *
+ * @param featureId The panel that the menu is in.
+ * @param item The menu item that was selected.
+ *
+ * @return boolean Return true to finish processing of selection, or
+ *         false to perform the normal menu handling (calling its
+ *         Runnable or sending a Message to its target Handler).
+ */
+public boolean onMenuItemSelected(int featureId, MenuItem item);
+
+```
+
+<font color="#becc5d">简单地理解，MenuItem包含了OptionsItem（常在的选择）和ContextItem（动态的，根据用户操作出现的选择），onMenuItemSelected()根据类型分别调用onOptionsItemSelected()和onContextItemSelected()来处理事件</font>
