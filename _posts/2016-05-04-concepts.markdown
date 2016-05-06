@@ -1,0 +1,22 @@
+---
+layout: "post"
+title: "一些Andorid概念"
+---
+#
+最近干各种核查的活，说实话，不喜欢。。。但是因为没接触过，也还新鲜，这就是大公司，感觉我适合去创业公司，天天做需求。th跳槽去上海，说几乎天天有技术交流，还有很棒的代码review，煞是羡慕~
+
+不过上班倒是有机会随便逛逛看看，之前很多推荐的Android Weekly，真的很棒诶~
+
+# [Understanding Android Naming Conventions](https://tir38.com/archives/1423)
+
+# clean code
+读上面这篇文章，里面不少引用这本书的内容，感觉好棒，英文原版竟然要小一千。。。还是委屈自己读pdf好了。。。
+
+# HandlerThread
+Handy class for starting a new thread that has a looper. The looper can then be used to create handler classes.
+
+看这句介绍好棒呀~然而从来没有用过。。。以前只知道thread。。。
+
+# last
+
+昨晚一点多睡下，今天早晨起不来，本来是要放音乐清醒清醒，结果在等着启动网易云音乐的空又睡着了。。。这么个挡，梦到他回来，问我愿不愿意嫁给他
