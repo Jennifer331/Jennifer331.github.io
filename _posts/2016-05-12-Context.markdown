@@ -1,0 +1,1 @@
+用context注册广播，如果是activity的context，就注册给activity，如果是Application的context，就注册给application
