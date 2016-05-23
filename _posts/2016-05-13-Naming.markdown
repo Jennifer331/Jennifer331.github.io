@@ -1,6 +1,6 @@
 ---
-layout:"post"
-title:"怎样命名"
+layout: "post"
+title: "怎样命名"
 ---
 [This one simple change for better class naming will blow your mind](https://www.novoda.com/blog/better-class-naming/):Naming convention for MVP classes(group concept)
 

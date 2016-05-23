@@ -1,6 +1,6 @@
 ---
-layout:"post"
-titile:"Android UI Resource"
+layout: "post"
+titile: "Android UI Resource"
 ---
 [Android Niceties]([Android Niceties](http://androidniceties.tumblr.com/)):A collection of screenshots encompassing some of the most beautiful looking Android apps.
 
