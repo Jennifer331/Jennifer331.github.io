@@ -1,0 +1,1 @@
+æ≤Ã¨¿‡£∫No enclosing instance of type Whitelist is accessible. Must qualify the allocation with an enclosing instance of type Whitelist (e.g. x.new A() where x is an instance of Whitelist).
