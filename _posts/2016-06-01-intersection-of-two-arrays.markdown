@@ -3,7 +3,7 @@ layout: "post"
 title: "从easy刷起-LeetCode"
 ---
 # <font color="#e3796b">Question</font>
-(找出两个int数组的相同元素)[https://leetcode.com/problems/intersection-of-two-arrays-ii/]
+[找出两个int数组的相同元素](https://leetcode.com/problems/intersection-of-two-arrays-ii/)
 
 # <font color="#e3796b">My Answer</font>
 ```JAVA
@@ -55,7 +55,7 @@ public class Solution {
 
 ```
 
-# <font color="#e3796b">More<?font>
+# <font color="#e3796b">More</font>
 网站的60个测试用例跑完需要12ms，感觉没有几个人写的算法可以比我的再慢一点。。。
 
 用Arrays.sort(int[] a);函数代替我自己的这个sort函数，用例跑完竟然只需要6ms。。。
@@ -94,3 +94,7 @@ public class Solution {
 }
 
 ```
+
+# <font color="#e3796b">Resource: Solution For LeetCode</font>
+[Leetcode question&solutions in Java](http://codeluli.blogspot.com/)
+[Github-hoael-leetcode](https://github.com/haoel/leetcode)
